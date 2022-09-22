@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node backend/index.js",
+    "dev:ft": "ft npm start"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/kai-skgk/react-todo/issues"
   },
-  "homepage": "https://github.com/kai-skgk/react-todo#readme"
+  "homepage": "https://github.com/kai-skgk/react-todo#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3"
+  }
 }
