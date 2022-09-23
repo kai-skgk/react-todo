@@ -5,7 +5,7 @@ import { IncompleteTodos } from "./components/IncompleteTodos";
 import { CompleteTodos } from "./components/CompleteTodos";
 import moment from 'moment'
 import DbResult from "./components/DbConnection";
-
+import { CssBaseline } from "@mui/material";
 
 const App = () => {
   const [todoText, setTodoText] = useState("");
@@ -62,6 +62,7 @@ const App = () => {
 
   return (
     <>
+    <CssBaseline />
       <InputTodo
         todoText={todoText}
         onChange={onChangeTodoText}
