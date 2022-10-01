@@ -11,7 +11,7 @@ const axios = Axios.create({
     baseURL: "http://localhost:4000/api",
 })
 
-const searchTasks = async () => {
+export const searchTasks = async () => {
     const url = '/search'
     console.log("API叩く")
     try {
@@ -28,11 +28,14 @@ const searchTasks = async () => {
     // }).catch(err => console.log("失敗：", err))
 }
 
-const insertTasks = async () => {
+export const insertTasks = async (name) => {
     const url = '/insert'
     console.log("データ追加API")
     try {
-        const response = await axios.post(url)
+        const response = await axios.post(url,{
+            name: name
+        })
+
         console.log("res:", response)
         return 'ok'
     } catch (err) {
@@ -40,10 +43,10 @@ const insertTasks = async () => {
     }
 }
 
-const DbResult = () => {
+const DbResult = (props) => {
     const [data, setData] = useState([]);
     //setData(searchTasks())
-
+    const { name } = props
     const [update, setUpdate] = useState(false)
 
     // テーブル更新したいなら、api呼び出して改めてdataに値を設定する必要がある
@@ -93,7 +96,6 @@ const DbResult = () => {
                     </Table>
                 </TableContainer>
             </Box>
-            <Button onClick={insertTasks}>タスク追加</Button>
             <Button onClick={() => {
                 setUpdate(update ? false : true)
             }}>更新</Button>

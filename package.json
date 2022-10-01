@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/kai-skgk/react-todo#readme",
   "dependencies": {
+    "body-parser": "^1.20.0",
     "cors": "^2.8.5",
     "express": "^4.18.1",
     "moment": "^2.29.4",

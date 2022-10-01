@@ -2,6 +2,7 @@ const Express = require('express')
 const cors = require('cors')
 const Mysql = require('mysql2')
 const moment = require('moment')
+const bodyParser = require('body-parser')
 // app.use((req, res, next) => {
 //     res.setHeader("Access-Control-Allow-Origin", "*")
 //     res.setHeader(
@@ -18,6 +19,12 @@ router.use(cors({
     credentials: true, //レスポンスヘッダーにAccess-Control-Allow-Credentials追加
     optionsSuccessStatus: 200 //レスポンスstatusを200に設定
 }))
+
+router.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+router.use(bodyParser.json())
 
 router.get('/search',(req, res) => {
     try {
@@ -55,9 +62,10 @@ router.post('/insert',(req, res) => {
         })
         console.log("DB接続")
         //リクエストで値を飛ばす方法が知りたい
-
+        console.log("ボディ：",req.body)
+        const taskName = req.body.name;
         connection.query("INSERT INTO taskdb(id,name,created_at,completed_at) values(?,?,?,null);", 
-        [Math.floor(Math.random() * 10000).toString(),'sample',moment(new Date()).format('YYYY/MM/DD HH:mm:ss')],
+        [Math.floor(Math.random() * 10000).toString(),taskName,moment().format('YYYY/MM/DD HH:mm:ss')],
         function (err, result, fields) {
             if(err){
                 console.log("接続終了（異常）")

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import "./styles.css";
-import { InputTodo } from "./components/InputTodos";
+import { InputTodos } from "./components/InputTodos";
+import InputTodo from "./components/InputTodo";
 import { IncompleteTodos } from "./components/IncompleteTodos";
 import { CompleteTodos } from "./components/CompleteTodos";
 import moment from 'moment'
 import DbResult from "./components/DbConnection";
 import { CssBaseline } from "@mui/material";
+import TaskForm from "./components/TaskForm";
 
 const App = () => {
   const [todoText, setTodoText] = useState("");
@@ -63,7 +65,7 @@ const App = () => {
   return (
     <>
     <CssBaseline />
-      <InputTodo
+      <InputTodos
         todoText={todoText}
         onChange={onChangeTodoText}
         onClick={onClickAdd}
@@ -87,7 +89,7 @@ const App = () => {
         onClickRemove={onClickRemove}
         completeDate={completeDate}
       />
-
+      <TaskForm />
       <DbResult />
     </>
   );

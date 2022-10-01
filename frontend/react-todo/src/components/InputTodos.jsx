@@ -10,7 +10,7 @@ const style = {
   margin: "8px"
 };
 
-export const InputTodo = (props) => {
+export const InputTodos = (props) => {
   const { todoText, onChange, onClick, disabled } = props;
   return (
     <>
