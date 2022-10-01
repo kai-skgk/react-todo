@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Axios from 'axios'
 import {
     Box, Paper, Button,
-    Table, TableHead, TableBody, TableRow, TableCell, TableContainer
+    Table, TableHead, TableBody, TableRow, TableCell, TableContainer, TablePagination
 } from '@mui/material'
 
 // // ここでAPIから取得→変数に設定→return でコンポーネントに変数を設定して返す
@@ -71,16 +71,16 @@ const DbResult = (props) => {
     }, [])
 
     return (
-        <>
-            <Box sx={{ width: 500 }}>Todo履歴
-                <TableContainer component={Paper}>
-                    <Table sx={{ maxWidth: 650 }} aria-label="simple table">
+        <><Box>Todo履歴</Box>
+            <Box sx={{ width: '100%', height:500, overflow:"hidden"}}>
+                <TableContainer component={Paper} sx={{ maxHeight: 400 }}>
+                    <Table aria-label="sticky table" stickyHeader>
                         <TableHead>
                             <TableRow>
-                                <TableCell align="right">id</TableCell>
-                                <TableCell align="right">名前</TableCell>
-                                <TableCell align="right">作成日</TableCell>
-                                <TableCell align="right">完了日</TableCell>
+                                <TableCell align="center">id</TableCell>
+                                <TableCell align="center">名前</TableCell>
+                                <TableCell align="center">作成日</TableCell>
+                                <TableCell align="center">完了日</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
