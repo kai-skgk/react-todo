@@ -1,2 +1,2 @@
 # react-todo
-test
+reactでtodoアプリケーションを作成する過程を通してreact知識を身に着けるためのリポジトリ
